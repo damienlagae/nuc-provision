@@ -6,10 +6,9 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-      - focal
-      - groovy
-
-  galaxy_tags: 
+        - focal
+        - groovy
+  galaxy_tags:
     - system
     - tools
     - essentials
