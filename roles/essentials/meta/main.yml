@@ -8,8 +8,7 @@ galaxy_info:
       versions:
       - focal
       - groovy
-
-  galaxy_tags: 
+  galaxy_tags:
     - system
     - tools
     - essentials
