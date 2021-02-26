@@ -1,0 +1,29 @@
+---
+# Setup/install tasks.
+- name: Update Ubuntu
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Ensure required packages are installed.
+  package:
+    pkg="{{ item }}" state=present
+  with_items:
+    - openfortivpn
+    - network-manager-fortisslvpn
+    - network-manager-fortisslvpn-gnome
+
+- name: Create fortinet vpn configuration for enabel
+  template:
+    src: enabel-vpn.j2
+    dest: "/etc/NetworkManager/system-connections/EnabelFortinet"
+    owner: root
+    group: root
+    mode: 0600
+  notify:
+    - Restart network-manager
+
+- name: Disable systemd-resolved
+  include: systemd-resolved.yml
+  when: fortivpn_resolved == false

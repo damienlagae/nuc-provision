@@ -1,0 +1,8 @@
+---
+fortivpn_resolved: false
+fortivpn_gateway: 'vpn.enabel.be'
+fortivpn_trustedcert: '{{ vault_fortivpn_trustedcert }}'
+fortivpn_user: 'damien.lagae@enabel.be'
+fortivpn_password: '{{ vault_fortivpn_password }}'
+fortivpn_dns: '{{ vault_fortivpn_dns }}'
+fortivpn_routes: '{{ vault_fortivpn_routes }}'

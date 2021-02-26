@@ -1,0 +1,20 @@
+---
+- name: Disable & Stop systemd-resolved, if running
+  systemd:
+    name: systemd-resolved
+    state: stopped
+    enabled: false
+
+- name: Configure network-manager
+  lineinfile:
+    path: /etc/NetworkManager/NetworkManager.conf
+    regexp: '^dns='
+    insertafter: '^\[main\]'
+    line: 'dns=default'
+
+- name: Remove old resolv.conf
+  file:
+    path: /etc/resolv.conf
+    state: absent
+  notify:
+    - Restart network-manager

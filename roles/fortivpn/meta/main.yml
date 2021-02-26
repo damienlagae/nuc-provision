@@ -1,0 +1,15 @@
+galaxy_info:
+  author: damienlagae
+  description: Install & configure openfortivpn
+  license: AGPL-3.0-or-later
+  min_ansible_version: 2.1
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal
+        - groovy
+  galaxy_tags:
+    - system
+    - openfortivpn
+    - vpn
+dependencies: []
